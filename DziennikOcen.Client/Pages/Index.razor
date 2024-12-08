@@ -10,12 +10,21 @@
         <th>Data utworzenia</th>
         <th>Ostatnia aktualizacja</th>
     </tr>
+    @foreach (var user in users)
+    {
+        <td>@user.UserID</td>
+        <td>@user.Username</td>
+        <td>@user.Pin</td>
+        <td>@user.RoleID</td>
+        <td>@user.Created_at</td>
+        <td>@user.Updated_at</td>
+    }
 </table>
 
 
 @code
 {
-    List<User> users = new List<User>();
+    public List<User> users = new List<User>();
 
     protected override void OnInitialized()
     {
@@ -28,8 +37,8 @@
         {
             new User()
             {
-                Update_at = DateTime.MinValue,
-                Create_at = DateTime.Now,
+                Updated_at = DateTime.MinValue,
+                Created_at = DateTime.Now,
                 Password = "saddsad",
                 Pin = 123,
                 RoleID = 1,
@@ -38,8 +47,8 @@
             },
             new User()
             {
-                Update_at = DateTime.MinValue,
-                Create_at = DateTime.Now,
+                Updated_at = DateTime.MinValue,
+                Created_at = DateTime.Now,
                 Password = "saddsad",
                 Pin = 123,
                 RoleID = 1,
