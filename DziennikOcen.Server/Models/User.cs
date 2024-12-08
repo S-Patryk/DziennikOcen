@@ -11,7 +11,7 @@ namespace DziennikOcen.Server.Models
         public string Password { get; set; }
         public int Pin { get; set; }
         public int RoleID { get; set; }
-        public DateTime Create_at { get; set; }
-        public DateTime Update_at { get; set; }
+        public DateTime Created_at { get; set; }
+        public DateTime Updated_at { get; set; }
     }
 }

@@ -5,7 +5,7 @@ namespace DziennikOcen.Server.Repositories
 {
     public class UserRepository
     {
-        private string connectionString = "";
+        private string connectionString = "Server=DESKTOP-81BVVCK\\SQLEXPRESS;Database=DziennikOcen;Trusted_Connection=True;Encrypt=False;";
 
         public async Task<List<User>> GetAll()
         {
@@ -30,8 +30,8 @@ namespace DziennikOcen.Server.Repositories
                     Username = reader["Username"].ToString(),
                     Password = reader["Password"].ToString(),
                     RoleID = Convert.ToInt32(reader["RoleID"]),
-                    Create_at = Convert.ToDateTime(reader["CreatedAt"]),
-                    Update_at = Convert.ToDateTime(reader["Update_at"])
+                    Created_at = Convert.ToDateTime(reader["Created_at"]),
+                    Updated_at = Convert.ToDateTime(reader["Updated_at"])
                 };
 
                 users.Add(user);

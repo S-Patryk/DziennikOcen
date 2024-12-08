@@ -1,12 +1,16 @@
 ﻿@page "/"
 @using DziennikOcen.Client.Models
 
-@foreach (var user in users)
-{
-    <h3>@user.Username</h3>
-}
-
-<h1>Hello, world!</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nazwa użytkownika</th>
+        <th>PIN</th>
+        <th>Rola</th>
+        <th>Data utworzenia</th>
+        <th>Ostatnia aktualizacja</th>
+    </tr>
+</table>
 
 
 @code

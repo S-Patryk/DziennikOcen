@@ -1,4 +1,5 @@
 ﻿using DziennikOcen.Server.Models;
+using DziennikOcen.Server.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DziennikOcen.Server.Controllers
@@ -9,33 +10,14 @@ namespace DziennikOcen.Server.Controllers
     public class UserController : ControllerBase
     {
         [HttpGet]
-        public List<User> Get()
+        public async Task<IActionResult> Get()
         {
-            var fakeUsers = new List<User>()
-            {
-                new User()
-                {
-                    Update_at = DateTime.MinValue,
-                    Create_at = DateTime.Now,
-                    Password = "saddsad",
-                    Pin = 123,
-                    RoleID = 1,
-                    UserID = 1,
-                    Username = "jacek"
-                },
-                new User()
-                {
-                    Update_at = DateTime.MinValue,
-                    Create_at = DateTime.Now,
-                    Password = "saddsad",
-                    Pin = 123,
-                    RoleID = 1,
-                    UserID = 2,
-                    Username = "patryk"
-                },
-            };
+            
+           var userrepository = new UserRepository();
 
-            return fakeUsers;
+           var users = await userrepository.GetAll();
+
+            return Ok(users);
         }
     }
 }
