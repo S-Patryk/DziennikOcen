@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using DziennikOcen.Client.Models
+@using DziennikOcen.Client.Services
 
 <table>
     <tr>
@@ -26,37 +27,17 @@
 {
     public List<User> users = new List<User>();
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        users = GetUser();
+        users = await GetUser();
     }
 
-    public List<User> GetUser()
+    public async Task<List<User>> GetUser()
     {
-        var fakeUsers = new List<User>()
-        {
-            new User()
-            {
-                Updated_at = DateTime.MinValue,
-                Created_at = DateTime.Now,
-                Password = "saddsad",
-                Pin = 123,
-                RoleID = 1,
-                UserID = 1,
-                Username = "jacek"
-            },
-            new User()
-            {
-                Updated_at = DateTime.MinValue,
-                Created_at = DateTime.Now,
-                Password = "saddsad",
-                Pin = 123,
-                RoleID = 1,
-                UserID = 2,
-                Username = "patryk"
-            },
-        };
+        var userService = new UserService();
 
-        return fakeUsers;
+        var users = await userService.GetAll();
+
+        return users;
     }
 }
