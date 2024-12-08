@@ -1,0 +1,6 @@
+@DziennikOcen.Server_HostAddress = http://localhost:5037
+
+GET {{DziennikOcen.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
